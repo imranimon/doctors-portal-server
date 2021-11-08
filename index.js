@@ -43,7 +43,7 @@ async function run() {
         // GET
         app.get('/appointments',verifyToken, async (req, res) => {
             const email = req.query.email;
-            const date = new Date(req.query.date).toLocaleDateString("de-DE", {timeZone: 'UTC'});
+            const date = req.query.date;
             let appointments = []
             if (email && date) {
                 const query = { email: email, date: date };
